@@ -1,29 +1,63 @@
 # your code goes here
 class Person 
     
-    attr_reader: bank_account, happniess, hygiene
-    attr_writer: name
-    attr_accessor: 
     
-    def initialize (name, bank_account = 25, happiness = 8, hygiene = 8)
+    
+    def initialize (name) 
     @name = name 
     end
 
-    def name
-        return @name 
+    def name =(new_name)
+        @name = new_name 
+        #setter 
     end
 
-    def bank_account
-        @bank_account = bank_account
+
+    def name 
+        @name
+        #getter  
+    end 
+
+
+    def bank_account(amount = 25)
+        @bank_account = amount 
+        #setter
     end
 
-    def happiness
-        @happiness
+    def personal_account
+        @bank_account
+        #getter
+    def 
+
+    def happiness(points = 8)
+        if points > 10 
+            points = 10 
+        elsif points < 0 
+            points = 0 
+        end 
+        @happiness = points 
+        #setter
     end
 
-    def hygiene
-        @hygiene
+    def personal_happiness
+        @happiness 
+        #getter
+    end 
+
+    def hygiene(points = 8)
+        if points > 10 
+            points = 10 
+        elsif points < 0 
+            points = 0 
+        end 
+        @hygiene = points 
+        #setter
     end
+
+    def personal_hygine
+        @hygiene 
+        #getter
+    end 
 
 
 
@@ -33,27 +67,40 @@ class Person
 
 
     def clean?
-        if happniess || hygiene > 7 
+        if @hygiene > 7 
             return true
         else 
             return false 
     end
 
     def happy?
+        if @happiness > 7
+            return true 
+        else 
+            return false
     end
 
-    def get_paid
-    bank_account = bank_account + salary
-    "all about benjamins"
+    def get_paid(salary_amount)
+    @bank_account = bank_account + salary_amount
+    return "all about benjamins"
     end
 
     def take_bath
+        @hygine = @hygine + 4  
+        return "♪ Rub-a-dub just relaxing in the tub ♫"
     end
+
 
     def work_out
+        @happiness = @happiness + 2
+        @hygine = @hygine - 3
+        return "♪ another one bites the dust ♫"
     end
 
-    def call_friend
+    def call_friend(friend)
+
+
+        return "Hi Felix! It's Stella. How are you?"
     end
 
     def start_converstation
