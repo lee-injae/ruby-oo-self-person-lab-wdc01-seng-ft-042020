@@ -22,18 +22,28 @@ class Person
        @bank_account = @bank_account + number
     end 
 
-
-     def happiness
-        @happiness 
-     end
-
+    # def happiness=(new_score)
+    #     if new_score >= 10
+    #         @happiness = 10
+    #     elsif new_score <= 0
+    #         @happiness = 0
+    #     else
+    #         @happiness = new_score
+    #     end
+    # end
+    def happiness
+        @happiness
+    end 
      def happiness= (number)
        
-        if @happiness + number >= 10 
-           @happiness 
+        if 
+            number >= 10 
+           @happiness = 10 
         elsif 
-           @happiness + number <= 0
-            @happiness 
+            number  <= 0
+            @happiness = 0 
+        else 
+            @happiness = number 
         end 
 
         
@@ -76,7 +86,7 @@ class Person
 
     def get_paid(salary)
     @bank_account = @bank_account + salary
-    pp "all about the benjamins"
+    "all about the benjamins"
     end
 
 #     def take_bath
