@@ -1,5 +1,10 @@
 # your code goes here
+
+require "pry"
+
 class Person 
+    attr_accessor :bank_account
+    attr_reader :name, :happiness, :hygiene
 
     def initialize(name) 
     @name = name 
@@ -8,107 +13,81 @@ class Person
     @hygiene = 8 
     end
 
-    def name 
-        @name 
-        #getter  
-    end 
-
-     def bank_account
-         @bank_account
-    
-     end
-
-    def bank_account= (number)
-       @bank_account = @bank_account + number
-    end 
-
-    # def happiness=(new_score)
-    #     if new_score >= 10
-    #         @happiness = 10
-    #     elsif new_score <= 0
-    #         @happiness = 0
-    #     else
-    #         @happiness = new_score
-    #     end
-    # end
-    def happiness
-        @happiness
-    end 
-     def happiness= (number)
-       
-        if 
-            number >= 10 
-           @happiness = 10 
+    def happiness=(new_score)
+        if new_score >= 10
+            @happiness = 10
         elsif 
-            number  <= 0
-            @happiness = 0 
-        else 
-            @happiness = number 
-        end 
+            new_score <= 0 
+            @happiness = 0
+        else
+            @happiness = new_score
+        end
+    end
 
-        
-     end 
+    def hygiene=(new_score)
+        if new_score >= 10
+            @hygiene = 10
+        elsif 
+            new_score <= 0 
+            @hygiene = 0
+        else
+            @hygiene = new_score
+        end
+    end
 
-     def hygiene
-        @hygiene
-     end 
+    def happy?
+       if happiness > 7 
+            true
+        else
+            false
+        end
+    end
 
-     def hygiene= (number)
-
-
-     end 
-
-
-
-
-
-
-
-
-# ---------------------------------
-
-
-
-#     def clean?
-#         if @hygiene > 7 
-#             return true
-#         else 
-#             return false 
-#     end
-
-    #  def happy?
-    #     if @happiness > 7
-    #         return true 
-    #     else 
-    #         return false
-    #     end 
-    # end
+    def clean?
+        if hygiene > 7 
+            true
+        else
+            false
+        end
+    end
 
     def get_paid(salary)
     @bank_account = @bank_account + salary
     "all about the benjamins"
     end
 
-#     def take_bath
-#         @hygine = @hygine + 4  
-#         return "♪ Rub-a-dub just relaxing in the tub ♫"
-#     end
+    def take_bath
+        @hygiene +=4
+        self.hygiene=(@hygiene) 
+        "♪ Rub-a-dub just relaxing in the tub ♫"
+    end
 
 
-#     def work_out
-#         @happiness = @happiness + 2
-#         @hygine = @hygine - 3
-#         return "♪ another one bites the dust ♫"
-#     end
+    def work_out
+        @hygiene -= 3
+        self.hygiene=(@hygiene)
+        @happiness += 2
+        self.happiness=(@happiness)
+     "♪ another one bites the dust ♫"
+    end
 
-#     def call_friend(friend)
+    def call_friend(friend)
+        friend.happiness += 3
+        self.happiness += 3
+        return "Hi #{friend.name}! It's #{self.name}. How are you?"
+    end
 
-
-#         return "Hi Felix! It's Stella. How are you?"
-#     end
-
-#     def start_converstation
-#     end
-
-
+    def start_conversation(person, topic)
+        if topic == "politics"
+            person.happiness -= 2 
+            self.happiness -= 2
+            return "blah blah partisan blah lobbyist"
+        elsif topic == "weather"
+            person.happiness += 1 
+            self.happiness += 1
+            return "blah blah sun blah rain"
+        else 
+            "blah blah blah blah blah"
+        end
+    end
 end
