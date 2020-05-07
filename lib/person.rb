@@ -24,6 +24,12 @@ class Person
         end
     end
 
+    # def happiness(num)
+    #     @happiness = num
+    #     @happiness = 10 if @happiness >10
+    #     @happiness = 0 if @happiness < 0 
+    # end
+
     def hygiene=(new_score)
         if new_score >= 10
             @hygiene = 10
@@ -35,6 +41,13 @@ class Person
         end
     end
 
+    # def hygiene=(num)
+    #     @hygiene = num
+    #     @hygiene = 10 if @hygiene > 10
+    #     @hygiene = 0 if @hygiene < 0 
+    # end
+
+
     def happy?
        if happiness > 7 
             true
@@ -42,6 +55,14 @@ class Person
             false
         end
     end
+
+    # def happy?
+    #     happiness >7
+    # end
+
+    # def clean?
+    #     hygiene > 7 
+    # end
 
     def clean?
         if hygiene > 7 
@@ -56,20 +77,31 @@ class Person
     "all about the benjamins"
     end
 
+    # def take_bath
+    #     @hygiene +=4
+    #     self.hygiene=(@hygiene) 
+    #     "♪ Rub-a-dub just relaxing in the tub ♫"
+    # end
+
     def take_bath
-        @hygiene +=4
-        self.hygiene=(@hygiene) 
+        self.hygiene += 4
         "♪ Rub-a-dub just relaxing in the tub ♫"
     end
 
+    # def work_out
+    #     @hygiene -= 3
+    #     self.hygiene=(@hygiene)
+    #     @happiness += 2
+    #     self.happiness=(@happiness)
+    #  "♪ another one bites the dust ♫"
+    # end
 
     def work_out
-        @hygiene -= 3
-        self.hygiene=(@hygiene)
-        @happiness += 2
-        self.happiness=(@happiness)
-     "♪ another one bites the dust ♫"
+        self.hygiene -= 3
+        self.happiness += 2
+        "♪ another one bites the dust ♫"
     end
+
 
     def call_friend(friend)
         friend.happiness += 3
@@ -90,4 +122,21 @@ class Person
             "blah blah blah blah blah"
         end
     end
-end
+
+    def start_conversation(person, topic)
+        objects = [self, person]
+        if topic == "politics"
+            objects.each {|o| o.happiness -= 2}
+            first, second = ["partisan", "lobbyist"]
+        elsif topic == "weather"
+            objects.each {|o| o.happiness += 1}
+            first, second = ["sun", "rain"]
+        end
+        first ||= "blah"
+        second ||= "blah"
+        base_string = "blah blah #{first} blah #{second}"
+    end
+
+        
+    end
+
